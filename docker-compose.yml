@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  test:
+    build: .
+    command: pytest -v
+    profiles:
+      - test
+    volumes:
+      - ./tests:/code/tests
+      - ./pytest.ini:/code/pytest.ini
