@@ -7,7 +7,7 @@ cred = credentials.Certificate(json.loads(os.environ["FIREBASE_SERVICE_ACCOUNT"]
 firebase_admin.initialize_app(cred)
 
 sha = os.environ["COMMIT_SHA"]
-
+#one
 firestore.client().collection("builds").document(sha).set({
     "commit_sha": sha,
     "commit_message": os.environ["COMMIT_MESSAGE"],
